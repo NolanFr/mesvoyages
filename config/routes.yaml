@@ -1,3 +1,11 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
+voyages:
+    path: '/voyages'
+    controller: 'App\Controller\VoyagesController::index'
+
+
+voyages.sort:
+    path: '/voyages/sort/{champ}/{ordre}'
+    controller: 'App\Controller\VoyagesController::sort'  
