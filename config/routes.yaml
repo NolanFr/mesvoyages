@@ -4,8 +4,37 @@
 voyages:
     path: '/voyages'
     controller: 'App\Controller\VoyagesController::index'
+    
+admin:
+    path: '/admin'
+    controller: 'App\Controller\admin\AdminVoyagesController::index'
 
 
 voyages.sort:
     path: '/voyages/sort/{champ}/{ordre}'
-    controller: 'App\Controller\VoyagesController::sort'  
+    controller: 'App\Controller\VoyagesController::sort' 
+    
+voyages.findallequal:
+    path: '/voyages/findallequal/{champ}'
+    controller: 'App\Controller\VoyagesController::findAllEqual'
+    
+voyages.showone:
+     path: '/voyages/showone/{id}'
+     controller: 'App\Controller\VoyagesController::showone'
+     
+admin.voyage.suppr:
+    path: '/admin/suppr/{id}'
+    controller : 'App\Controller\admin\AdminVoyagesController::suppr'
+    
+admin.voyage.edit:
+    path: '/admin/edit/{id}'
+    controller : 'App\Controller\admin\AdminVoyagesController::edit'
+    
+admin.voyage.ajout:
+    path: '/admin/ajout/{ajout}'
+    controller : 'App\Controller\admin\AdminVoyagesController::ajout'    
+    
+    
+  
+         
+     

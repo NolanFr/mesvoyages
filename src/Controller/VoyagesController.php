@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\VisiteRepository;
+use Symfony\Component\HttpFoundation\Request;
 /**
  * Description of VoyagesController
  *
@@ -53,8 +54,21 @@ class VoyagesController extends AbstractController{
         ]); 
         
     }
-
+    
+    public function findAllEqual($champ, Request $request): Response {
+      $valeur = $request->get("recherche");
+      $visites = $this->repository->findEqualValue($champ, $valeur);
+      return $this->render("pages/voyages.html.twig", [
+          'visites' => $visites
+      ]);
+  }
    
+    public function showOne ($id): Response{
+        $visite = $this->repository->find($id);
+        return $this->render("pages/voyage.html.twig",[
+            'visite' => $visite
+        ]);
+    }
 }
 
 
